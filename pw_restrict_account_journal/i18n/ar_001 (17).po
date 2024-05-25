@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pw_restrict_account_journal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-02 11:42+0000\n"
+"PO-Revision-Date: 2024-01-02 14:43+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: pw_restrict_account_journal
+#: model_terms:ir.ui.view,arch_db:pw_restrict_account_journal.view_users_form_inherit_restrict_journals
+msgid "Allowed Journals"
+msgstr "الحسابات المسموح بها"
+
+#. module: pw_restrict_account_journal
+#: model:ir.model.fields,field_description:pw_restrict_account_journal.field_res_users__journal_ids
+msgid "Journal"
+msgstr "طريقة الدفع"
+
+#. module: pw_restrict_account_journal
+#: model:res.groups,name:pw_restrict_account_journal.pw_group_journal_restriction
+msgid "Restrict Journals"
+msgstr "تقييد طرق الدفع"
+
+#. module: pw_restrict_account_journal
+#: model:ir.model.fields,field_description:pw_restrict_account_journal.field_res_users__show_journal
+msgid "Show Journal"
+msgstr "عرض طريقة الدفع"
+
+#. module: pw_restrict_account_journal
+#: model:ir.model,name:pw_restrict_account_journal.model_res_users
+msgid "User"
+msgstr "المستخدم"

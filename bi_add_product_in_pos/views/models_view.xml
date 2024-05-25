@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="add_product_in_pos" model="ir.actions.server">
+            <field name="name">Availabale In POS</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="binding_model_id" ref="product.model_product_template"/>
+            <field name="binding_view_types">form,list</field>
+            <field name="state">code</field>
+            <field name="code">action = records.add_products_in_pos()</field>
+        </record>
+
+         <record id="add_product_variant_in_pos" model="ir.actions.server">
+            <field name="name">Availabale In POS</field>
+            <field name="model_id" ref="product.model_product_product"/>
+            <field name="binding_model_id" ref="product.model_product_product"/>
+            <field name="binding_view_types">form,list</field>
+            <field name="state">code</field>
+            <field name="code">action = records.add_products_variant_in_pos()</field>
+        </record>
+    </data>
+</odoo>

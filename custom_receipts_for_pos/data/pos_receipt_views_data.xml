@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Sub Categories  -->
+    <record id="pos_receipt_design1" model="pos.receipt">
+        <field name="name">Pos Recept Design</field>
+        <field name="design_receipt"><![CDATA[<div class="pos-receipt">
+             <style type="text/css">
+                    @font-face {
+                    font-family:KacstLetter ;
+                    src: url(/custom_receipts_for_pos/static/src/fonts/KacstLetter.ttf);
+                    }
+
+                    h2 {font-family: KacstLetter;}
+                    td {font-family: KacstLetter;}
+                    th { font-family: KacstLetter;}
+                    h5 { font-family: KacstLetter;}
+                    h4 { font-family: KacstLetter;}
+                    p { font-family: KacstLetter;}
+                    span { font-family: KacstLetter;}
+                    div { font-family: KacstLetter;}
+                    center { font-family: KacstLetter;}
+                </style>
+                
+
+            <div style="border-top:1px solid black;border-radius: 5px; 
+                border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid"> 
+
+                <!-- sales team logo -->
+                <img t-attf-src="/web/image?model=crm.team&amp;id={{this.env.services.pos.sale_team_id}}&amp;field=logo_sale_recipt" alt="Logo" class="pos-receipt-logo"/>
+                <!-- sales team logo -->
+
+            <div class="pos-receipt-contact">
+                <t t-if="this.env.services.pos.sale_team_name[1]">
+                    <div style="font-weight: bold;font-size: 15px; color:black;"><t t-esc="this.env.services.pos.sale_team_name[1]" /></div>
+                </t>
+
+
+            
+
+                <t t-if="env.services.pos.company.zip">
+                    <div style="font-weight: bold; font-size: 15px; color: black;"><t t-esc="env.services.pos.company.zip"/></div>
+                </t>
+
+                 <t t-if="env.services.pos.company.vat">
+                    <div style="font-weight: bold;font-size: 8px; color:black;"><t t-esc="env.services.pos.company.vat_label || 'الرقم الضريبي'"/> : <t t-esc="env.services.pos.company.vat" />  </div>
+                </t>
+
+                <t t-if="props.receipt.headerData.header">
+                    <div style="font-weight: bold;font-size: 8px; color:black;"> <t t-out="props.receipt.headerData.header" /></div>
+                </t>
+
+
+                    
+
+
+            
+                <br/>
+
+
+              
+
+
+            </div>
+            </div>
+
+              <div>
+                <center>
+                    <span style="font-weight: bold;font-size: 15px; color:black;">فاتورة ضريبية مبسطة</span>
+                </center>
+            </div>
+            
+
+            <div style="border-top: 1px solid black;border-radius: 5px; 
+            border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid">
+                <center>
+                    <span style="font-weight: bold;font-size: 15px; color:black;">فاتورة مبيعات</span>
+                </center>
+           
+            </div>
+            <div class="" style="border-top: 1px solid black;border-radius: 5px; 
+            border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid">
+                <center>
+                    <span style="font-weight: bold;font-size: 10px; color:black;">
+                        <t t-esc='props.data.barcode'/>
+                    </span>
+                </center>
+           
+            </div>
+
+
+            <!-- medill roweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+                                    <div class="row p-2">
+                <div class="col-12">
+                    <style>
+                        .custom-table {
+
+                            width: 100%;
+                            font-size:8px;
+                            font-weight: bold;
+                        
+                            border-collapse: collapse;
+                            border-collapse: separate;
+                            border: 1px solid #000;
+
+                        
+                        }
+                        
+                        
+                        .custom-table th, .custom-table td {
+                        
+                            border: 1px solid #000;
+                            font-size:8px;
+                            font-weight: bold;
+                        
+                            padding: 10px;
+                        
+                            text-align: center;
+                        
+                        }
+                        .custom-table tr, {
+                            margin-bottom: 10px;
+                            
+                        
+                        }
+                    </style>
+                    <table style="border: 1px solid #000;" class="custom-table p-2" width="100%">
+                        <tr>
+                            <th style="font-weight: bold;font-size: 8px; color:black;">Invoice Number</th>
+                            <td style="font-weight: bold;font-size: 8px; color:black;"><div><t t-esc="props.receipt.name" /></div></td>
+                            <th style="font-weight: bold;font-size: 8px; color:black;" >رقم الفاتورة</th>
+                        </tr>
+                        <tr>
+                            <th style="font-weight: bold;font-size: 8px; color:black;">Invoice Issue Date</th>
+                            <td style="font-weight: bold;font-size: 8px; color:black;"><div t-esc="props.receipt.date"/></td>
+                            <th style="font-weight: bold;font-size: 8px; color:black;" >تاريخ الفاتورة</th>
+                        </tr>
+
+                        <tr>
+                            <th style="font-weight: bold;font-size: 8px; color:black;">Time</th>
+                            <td style="font-weight: bold;font-size: 8px; color:black;"><div t-esc="props.receipt.date"/></td>
+                            <th style="font-weight: bold;font-size: 8px; color:black;" >الوقت</th>
+                        </tr>
+
+                       
+                        
+                        
+                    </table>
+
+                
+
+                </div>
+
+               
+            </div>
+            <!-- qr code iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii -->
+
+                        
+            <!-- qr code iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii -->
+
+
+
+            <!-- medil roweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+
+            <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+            <div style="border: 1px solid black; border-radius: 5px; padding: 5px; display: flex; justify-content: space-between;">
+                <span style="text-align: left; display: block; font-weight: bold;font-size: 8px; color:black;">
+                    <t t-if="props.order[0].partner">
+                        <t t-esc='props.order[0].partner.name' style="font-style: bold" /> 
+                        </t>
+                </span>
+
+                    <span style="text-align: right; display: block; font-weight: bold;font-size: 8px; color:black;"> اسم العميل</span>
+                  
+
+                    
+            </div>
+
+            <div style="border: 1px solid black; border-radius: 5px; padding: 5px; display: flex; justify-content: space-between;">
+                <span style="text-align: left; display: block; font-weight: bold;font-size: 8px; color:black;">
+                    <t t-if="props.order[0].partner">
+                        <t t-esc='props.order[0].partner.vat' style="font-style: bold" /> 
+                        </t>
+                </span>
+
+                    <span style="text-align: right; display: block; font-weight: bold;font-size: 8px; color:black;"> الرقم الضريبي للعميل</span>
+                  
+            </div>
+
+            <div style="border: 1px solid black; border-radius: 5px; padding: 5px; display: flex; justify-content: space-between;">
+                <span style="text-align: left; display: block; font-weight: bold;font-size: 8px; color:black;">
+                    <t t-if="props.order[0].partner">
+                        <t t-esc='props.order[0].partner.mobile' style="font-style: bold" /> 
+                        </t>
+                </span>
+
+                    <span style="text-align: right; display: block; font-weight: bold;font-size: 8px; color:black;">رقم جوال العميل</span>
+                  
+            </div>
+
+            <div style="border: 1px solid black; border-radius: 5px; padding: 5px; display: flex; justify-content: space-between;">
+                <span style="text-align: left; display: block; font-weight: bold;font-size: 8px; color:black;">
+                    <t t-if="props.order[0].partner">
+                        <t t-esc='props.order[0].partner.street' style="font-style: bold" />/   <t t-esc='props.order[0].partner.city' style="font-style: bold" /> / <t t-esc='props.order[0].partner.state_id' style="font-style: bold" />   
+                        </t>
+                </span>
+
+                    <span style="text-align: right; display: block; font-weight: bold;font-size: 8px; color:black;">عنوان العميل</span>
+                  
+            </div>
+
+            
+
+        <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+
+
+            <div>
+                <table class='receipt-orderlines' 
+                    style="
+                        border: 1px solid #000;
+                        font-size:10px;
+                        font-weight: bold;
+                       
+                        width: 100%;
+                    ">
+                <colgroup>
+                    <col width='40%' />
+                    <col width='20%' />
+                    <col width='20%' />
+                    <col width='20%' />
+
+                </colgroup>
+                <tr style=" border: 1px solid #000;color:black;">
+                    <th style="text-align:center;">
+                        <span>Product </span>
+                         <br></br>
+                           
+                         <span>الصنف</span>
+                    </th>
+                    <th style="text-align:center;">
+                        <span>Qty</span>
+                         <br></br>
+                         <span>الصنف</span>
+                    </th>
+                    <th style="text-align:center;">
+                        <span>Price</span>
+                         <br></br>
+                        
+                        <span>السعر </span>
+                    </th>
+                    <th style="text-align:center;">
+                        <span>Amount</span>
+                         <br></br>
+                       
+                        <span>الاجمالي</span>
+                </th>
+                </tr>
+                <tr t-foreach="props.orderlines" t-as="orderline" t-key="index_orderlines">
+                    <td class="text-center" style="padding-top: 1%;padding-bottom: 1%;color:black; margin-right: -10px;">
+                        <t t-esc="orderline.get_product().display_name"/>
+                        <t t-if="orderline.get_discount() > 0">
+                            <div style="font-size: 12px;font-style: italic;color: #808080;">
+                                <t t-esc="orderline.get_discount()"/>% discount
+                            </div>
+                        </t>
+                        <t t-if="orderline.customerNote">
+                            <div style="font-size: 14px;" t-esc="orderline.customerNote"/>
+                        </t>
+                    </td>
+                    <td class="pos-center-align text-center" style="color:black;">
+                        <t t-esc="orderline.get_quantity_str_with_unit()"/>
+                    </td>
+                    <td class="pos-center-align text-center" style="color:black;">
+                        <t t-esc="orderline.price"/>
+                    </td>
+                    <td class="pos-center-align text-center" style="color:black;">
+                        <t t-esc="orderline.get_display_price()"/>
+                    </td>
+                </tr>
+                </table>
+            </div>
+
+            <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+                <div style="border: 1px solid black; border-radius: 5px; padding: 5px; display: flex; justify-content: space-between;">
+                        <span style="text-align: right; display: block; font-weight: bold;font-size: 8px; color:black;">أجمالي المبالغ</span>
+                        <span style="text-align: left; display: block; font-weight: bold;font-size: 8px; color:black;">Total Amount</span>
+                </div>
+
+            <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+
+            <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+                    <div class="row">
+                        <div class="col-12">
+
+                            <style>
+                                .custom-table {
+
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+
+                                    border-collapse: collapse;
+                                    border-spacing: 10px;
+
+                                }
+                                .custom-table .hed{
+                                    font-weight: bold;
+                                    font-size: 15px;
+                                }
+
+
+                                .custom-table th, .custom-table td {
+                                    border: 1px solid black;
+                                    padding: 5px;
+                                }
+                                .custom-table tr, {
+                                    margin-bottom: 10px;
+                                }
+
+
+                            </style>
+                            <table class="custom-table" style="page-break-inside: avoid; color:black;">
+
+                                <tr>
+                                    <td  class="hed" style="font-weight: bold;font-size: 8px;"> الاجمالي غيرشامل ضريبة القيمة المضافة <br/>Total (Excluding VAT)</td>
+
+                                    <td style="font-weight: bold;font-size: 8px;" class="text-center">
+                                            <t t-set='taxincluded' t-value='Math.abs(props.receipt.amount_total - props.receipt.total_with_tax) &lt;= 0.000001' />
+                                                <t t-if='!taxincluded'>
+                                                     <span t-esc='props.receipt.amount_total'/>
+                                                </t>
+                                     </td>
+                                </tr>
+                                <tr>
+                                    <td  class="hed" style="font-weight: bold;font-size: 8px;"> مجموع الخصومات <br/>Discount</td>
+
+                                    <td style="font-weight: bold;font-size: 10px;" class="text-center">
+                                        <span t-esc="props.receipt.total_discount"/>
+                                     </td>
+                                </tr>
+
+                              <!--   <tr>
+                                    <td  class="hed" style="font-weight: bold;font-size: 10px;">الاجمالي الخاضع للضريبة غير شامل ضريبة القيمة المضافة<br/>Total Taxable Amount(Exluding VAT)</td>
+
+                                    <td style="font-weight: bold;font-size: 8px;" class="text-center">
+                                        1
+                                     </td>
+                                </tr> -->
+
+                                <tr>
+                                    <td  class="hed" style="font-weight: bold;font-size: 8px;">مجموع ضريبة القيمة المضافة  <br/>Total VAT</td>
+
+                                    <td style="font-weight: bold;font-size: 10px;" class="text-center">
+                                       <t t-if='!taxincluded'>
+                                            <t t-foreach='props.receipt.tax_details' t-as='tax' t-key="index_tax_details">
+                                                    <span t-esc='tax.amount'/>
+                                            </t>
+                                        </t>
+                                     </td>
+
+
+                                </tr>
+
+
+                                <tr>
+                                    <td  class="hed" style="font-weight: bold;font-size: 10px;">اجمالي المبلغ المستحق<br/>Total Amount Due</td>
+
+                                    <td style="font-weight: bold;font-size: 10px;" class="text-center">
+                                     <span t-esc='props.receipt.amount_total'/>
+
+                                     </td>
+
+
+                                </tr>
+
+
+                            </table>
+
+                        </div>
+                        
+                    </div>
+            <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+
+
+
+            <!-- payment line  -->
+            <br></br>
+                <div  class="paymentlines" t-foreach="props.receipt.paymentlines" t-as="line" t-key="line_index" style="border: 1px solid black; border-radius: 5px; padding: 5px; display: flex; justify-content: space-between;">
+                    
+                    <span style="text-align: left; display: block; font-weight: bold;font-size: 8px; color:black;">
+                        <t t-esc="line.amount"/>
+
+                    </span>
+
+                    <span style="text-align: right; display: block; font-weight: bold;font-size: 8px; color:black;"> 
+                        <t t-esc="line.name" /> 
+
+                    </span>
+                </div>
+
+            <!-- payment line -->
+
+         
+
+          
+             <div class="row">
+
+            <div class="col-8 p-2">
+                         
+                <!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+
+                <t t-if="props.data.is_gcc_country and !props.data.is_settlement">
+                    <img t-if="props.data.qr_code" id="qrcode" t-att-src="props.data.qr_code" class="pos-receipt-qrcode"/>
+                    <br/>
+                </t>
+    
+
+            <!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+
+                
+
+
+            </div>
+            <div class="col-4 p-2">
+                <div class="row">
+                    <td  class="hed" style="font-weight: bold;font-size: 10px; color:black;">اجمالي الكميات</td>
+                    <td> 
+                                <span t-esc="props.data.total_qty" class="hed" style="font-weight: bold;font-size: 8px; color:black;"/>
+
+                    </td>
+
+
+                </div>
+
+                <b/>
+                <div  style="font-weight: bold;font-size: 8px; color:black;"><t t-esc="props.receipt.headerData.cashier" /></div>
+
+            </div>
+
+           
+            <!-- row tow uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu -->
+            <br></br>
+            <br></br>
+
+                        <div class="row">
+                        <div class="col-12">
+                            <center>
+                            
+                                <div t-if='!props.receipt.footer_html and props.receipt.footer'>
+                                    <br/>
+                                    <div style="font-weight: bold;font-size: 8px; color:black;"> <t t-esc='props.receipt.footer'/></div>
+                                    <br/><br/>
+                                </div>
+
+                            </center>
+
+                        </div>
+                    </div>
+                <!-- row tow uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu -->
+        </div>
+
+
+       
+
+
+
+        </div>]]></field>
+    </record>
+    
+</odoo>
